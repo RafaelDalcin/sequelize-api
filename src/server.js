@@ -4,8 +4,7 @@ import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
 import routes from './routes';
-require('./models/index')
-
+require('./models/index');
 
 const app = express();
 
@@ -20,11 +19,9 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 routes(app);
 app.use((req, res) => {
-  res.status(404).send('Página não encontrada')
-
+  res.status(404).send('404 - Página não encontrada')
 });
 
 app.listen(3000, () => {
-  console.log(`Example app listening on port 3000!`);
-
+  console.log(`Servidor rodando na porta 3000!`);
 });
