@@ -49,7 +49,7 @@ const persistir = async (req, res) => {
     //caso nao tenha id, cria um novo registro
     if (!id) {
       return await create(req.body, res)
-    }   
+    }
 
     return await update(id, req.body, res)
   } catch (error) {
@@ -64,7 +64,7 @@ const create = async (dados, res) => {
 
   let usuarioExiste = await Usuario.findOne({
     where: {
-        email,
+      email,
     }
   });
 
@@ -97,9 +97,9 @@ const update = async (id, dados, res) => {
 
   //TODO: desenvolver uma lógica pra validar todos os campos
   //que vieram para atualizar e entao atualizar
- Object.keys(dados).forEach(field => usuario[field] = dados[field]);
+  Object.keys(dados).forEach(field => usuario[field] = dados[field]);
 
- await usuario.save();
+  await usuario.save();
   return res.status(200).send({
     message: `Dados do usuário ${dados.nome} atualizado com sucesso`,
     data: usuario

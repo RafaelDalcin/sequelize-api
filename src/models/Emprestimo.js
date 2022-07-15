@@ -1,6 +1,7 @@
+
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/config";
-import Usuario from "./Usuario"
+import Usuario from "../models/Usuario"
 
 const Emprestimo = sequelize.define(
   'emprestimos',
@@ -36,3 +37,5 @@ Emprestimo.belongsTo(Usuario, {
 });
 
 export default Emprestimo;
+
+
